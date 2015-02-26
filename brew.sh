@@ -9,16 +9,17 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Make sure we’re using the latest Homebrew.
-yum update
+yum -y update
 
-yum install nano
+yum install -y nano
 
 # Install screen
-yum install screen
+yum install -y screen
 
 # Install Node.js. Note: this installs `npm` too, using the recommended
-# installation method.
-yum install node
+# installation method. https://github.com/joyent/node/wiki/installing-node.js-via-package-manager#enterprise-linux-and-fedora
+curl -sL https://rpm.nodesource.com/setup | bash -
+yum install -y node
 
 # Install io.js
 # yum install iojs
